@@ -17,7 +17,6 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 
 app.MapPost("/sendmessage", async Task<IResult>(IConnection connection, string messageToSend) =>{
-
     var channel = connection.CreateModel();
     channel.QueueDeclare(
         queue:"testMessage",
@@ -35,9 +34,7 @@ app.MapPost("/sendmessage", async Task<IResult>(IConnection connection, string m
         basicProperties:null,
         body:body
     );
-
     return Results.Ok(new {});
-
 });
 
 var summaries = new[]
