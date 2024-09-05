@@ -18,11 +18,9 @@ public class ProcessRabbitMQMessage : BackgroundService
         _logger = logger;
         _serviceProvider = serviceProvider;
     }
-
     protected override Task ExecuteAsync(CancellationToken stoppingToken)
     {
         string queueName = "testMessage";
-
         _messageConnection = _serviceProvider.GetRequiredService<IConnection>();
 
         _messageChannel = _messageConnection.CreateModel();
@@ -40,14 +38,12 @@ public class ProcessRabbitMQMessage : BackgroundService
             consumer: consumer);
         return Task.CompletedTask;
     }
-
     public override async Task StopAsync(CancellationToken cancellationToken)
     {
         await base.StopAsync(cancellationToken);
         consumer.Received -= ProcessMessageAsync;
         _messageChannel?.Dispose();
     }
-
     private void ProcessMessageAsync(object? sender, BasicDeliverEventArgs args)
     {
         string message = Encoding.UTF8.GetString(args.Body.ToArray());
