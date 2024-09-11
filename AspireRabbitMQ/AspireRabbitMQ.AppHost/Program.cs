@@ -14,6 +14,7 @@ builder.AddNpmApp("angular", "../AspireRabbitMQ.Angular")
     .WithHttpEndpoint(env: "PORT")
     .WithExternalHttpEndpoints()
     .PublishAsDockerFile();
+
 builder.AddNpmApp("react", "../AspireRabbitMQ.React")
     .WithReference(senderApi)
     .WithHttpEndpoint(env: "PORT")
