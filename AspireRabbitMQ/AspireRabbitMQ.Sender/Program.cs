@@ -19,6 +19,7 @@ options.QueueLimit = 2;
 }));
 
 var app = builder.Build();
+app.UseRateLimiter();
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseHttpsRedirection();
