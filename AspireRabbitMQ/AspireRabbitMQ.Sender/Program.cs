@@ -9,6 +9,15 @@ builder.Services.AddProblemDetails();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddRateLimiter( _ => _
+.AddFixedWindowLimiter(policyName:"fixed",options =>{
+options.PermitLimit = 2;
+options.Window = TimeSpan.FromSeconds(10);
+options.QueueProcessingOrder = 
+    QueueProcessingOrder.OldestFirst;
+options.QueueLimit = 2;    
+}));
+
 var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
