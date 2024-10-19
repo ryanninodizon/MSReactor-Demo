@@ -36,8 +36,7 @@ namespace FunctionApp
                 var errorReponse = req.CreateResponse(HttpStatusCode.InternalServerError);
                 await errorReponse.WriteStringAsync($"Error Occured: {e.Message}");  
                 return errorReponse;
-            }
-            
+            }            
         }
         public static async Task<HttpResponseData> ReadAsync(HttpRequestData req, Container container)
         {
@@ -71,8 +70,6 @@ namespace FunctionApp
             var response = req.CreateResponse(HttpStatusCode.OK);
             await response.WriteStringAsync("Item Updated");
             return response;
-        }
-
-        
+        }        
     }
 }
