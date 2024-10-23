@@ -1,0 +1,6 @@
+@SK_MSReactor_HostAddress = http://localhost:5055
+
+GET {{SK_MSReactor_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
