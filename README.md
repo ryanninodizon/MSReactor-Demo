@@ -5,4 +5,3 @@
 - **DotNetMicroservices**: .NET Microservices in Azure Container Apps. See details [here](https://developer.microsoft.com/en-us/reactor/events/23560/ "here")
 - **AzureFunctionWithDotNet**: Azure Functions with .NET [here](https://developer.microsoft.com/en-us/reactor/events/24099/ "here")
 - **TestContainersForDotNet**: Intro to Testcontainers for .NET [here](https://developer.microsoft.com/en-us/reactor/events/24100/ "here")
-- 
