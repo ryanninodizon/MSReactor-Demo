@@ -2,6 +2,7 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 var rabbitMQ = builder.AddRabbitMQ("messaging")
 .WithManagementPlugin();
+
 var senderApi = builder.AddProject<Projects.AspireRabbitMQ_Sender>("sender")
 .WithReference(rabbitMQ);
 
