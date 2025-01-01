@@ -17,6 +17,7 @@ namespace FunctionApp
             await response.WriteStringAsync("New Item Added");
             return response;
         }
+        
         public static async Task<HttpResponseData> DeleteAsync(HttpRequestData req, Container container, string id)
         {
            await container.DeleteItemAsync<dynamic>(id, new PartitionKey(id));
@@ -24,6 +25,7 @@ namespace FunctionApp
            await response.WriteStringAsync("Item was successfully deleted");
            return response;
         }
+        
         public static async Task<HttpResponseData> ReadAsync(HttpRequestData req, Container container, string id)
         {
             try{
@@ -38,6 +40,7 @@ namespace FunctionApp
                 return errorReponse;
             }            
         }
+        
         public static async Task<HttpResponseData> ReadAsync(HttpRequestData req, Container container)
         {
             try{
@@ -62,6 +65,7 @@ namespace FunctionApp
                 return errorReponse;
             }
         }
+        
         public static async Task<HttpResponseData> UpdateAsync(HttpRequestData req, Container container, string id)
         {
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
